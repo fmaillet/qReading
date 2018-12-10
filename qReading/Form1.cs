@@ -94,10 +94,12 @@ namespace qReading
                 if (_myConnected == true)
                 {
                     this.SetText ("qReading - Connecté : " + titre + " " + prenom + " " + name);
+                    this.connexionServeurToolStripMenuItem.Enabled = false;
                 }
                 else
                 {
                     this.SetText ("qReading - MODE DEMO (NON CONNECTE)");
+                    this.connexionServeurToolStripMenuItem.Enabled = true;
                 }
             }
         }
@@ -116,6 +118,15 @@ namespace qReading
             else
             {
                 this.Text = text;
+            }
+        }
+
+        //Same for menu item
+        private void SetMenuItemEnabled(Boolean b)
+        {
+            if (this.InvokeRequired)
+            {
+
             }
         }
 
@@ -141,6 +152,7 @@ namespace qReading
                     prenom = reader.GetString("PRENOM");
                     MyConnected = true;
                 }
+                if (MyConnected == false) MyConnected = false;
             }
             catch (Exception)
             {
@@ -219,6 +231,11 @@ namespace qReading
         {
             //eyeX.Context.LaunchConfigurationTool(ConfigurationTool.RetailCalibration, (data) => { });
             eyeX.Context.LaunchConfigurationTool(ConfigurationTool.Recalibrate, (data) => { });
+        }
+
+        private void connexionServeurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Connexion serveur");
         }
 
         //Check for speech synthesis

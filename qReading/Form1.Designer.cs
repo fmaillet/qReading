@@ -38,6 +38,8 @@
             this.ageLabel = new System.Windows.Forms.Label();
             this.calButton = new System.Windows.Forms.Button();
             this.speechButton = new System.Windows.Forms.Button();
+            this.connexionServeurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +57,8 @@
             // fichierToolStripMenuItem
             // 
             this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connexionServeurToolStripMenuItem,
+            this.toolStripSeparator1,
             this.quitterToolStripMenuItem});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
@@ -133,6 +137,19 @@
             this.speechButton.UseVisualStyleBackColor = true;
             this.speechButton.Click += new System.EventHandler(this.speechButton_Click);
             // 
+            // connexionServeurToolStripMenuItem
+            // 
+            this.connexionServeurToolStripMenuItem.Enabled = false;
+            this.connexionServeurToolStripMenuItem.Name = "connexionServeurToolStripMenuItem";
+            this.connexionServeurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.connexionServeurToolStripMenuItem.Text = "Connexion serveur";
+            this.connexionServeurToolStripMenuItem.Click += new System.EventHandler(this.connexionServeurToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +184,8 @@
         private System.Windows.Forms.Label ageLabel;
         private System.Windows.Forms.Button calButton;
         private System.Windows.Forms.Button speechButton;
+        private System.Windows.Forms.ToolStripMenuItem connexionServeurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
