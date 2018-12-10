@@ -147,7 +147,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "mainForm";
-            this.Text = "qReading";
+            this.Text = "qReading - Connexion en cours...";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

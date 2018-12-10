@@ -40,14 +40,13 @@ namespace qReading
         public mainForm()
         {
             InitializeComponent();
-            this.Text = "qReading - MODE DEMO (NON CONNECTE)";
-
+            
+            //Get words list
             string resource_data = Properties.Resources.mots;
             words = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             System.Console.WriteLine(words[0]);
 
-            //Get MacAddress
-            
+            //Get MacAddress (required for auto connect)
             foreach  (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
             {
                 macAddr = string.Join("-", nic.GetPhysicalAddress().GetAddressBytes().Select(b => b.ToString("X2")));
@@ -57,40 +56,6 @@ namespace qReading
             //Launch autoConnect thread
             autoConnect = new Thread(new ThreadStart(autoConnectThread));
             autoConnect.Start();
-
-            /*//Test mySQL connection
-            MySqlConnection connection = new MySqlConnection(MyConnectionString);
-            connection.Open();
-            MySqlCommand cmd;
-            MySqlDataReader reader = null;
-            try
-            {
-                cmd = connection.CreateCommand();
-                cmd.CommandText = "select * from Pro where MACADR = '" + macAddr + "'";
-                Console.WriteLine(cmd.CommandText);
-
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    titre = reader.GetString("TITRE");
-                    name = reader.GetString("NOM");
-                    prenom = reader.GetString("PRENOM");
-                    connectedToServer(true);
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("mySql error");
-                throw;
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    Console.WriteLine("mySql com open");
-                    connection.Close();
-                }
-            }*/
 
             //Initialize speech synth
             synth = new SpeechSynthesizer();
